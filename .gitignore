@@ -1,0 +1,21 @@
+# Entorno local
+.venv/
+.ipynb_checkpoints/
+__pycache__/
+
+# Datos y modelos que descargan o generan los notebooks
+geomag-magnet/data/
+geomag-magnet/trained_models_lstm/
+rip_current/*.csv
+rip_current/*.txt
+rip_current/*.zip
+offshore_wind_profiles/*.csv
+offshore_wind_profiles/*.nc
+fire_radiative_power/*.nc
+fire_radiative_power/*.csv
+fire_radiative_power/*.pkl
+fire_radiative_power/*.sav
+fire_radiative_power/RAVE_RAP_proc/
+echofish/*.raw
+echofish/*.zarr/
+*.idx

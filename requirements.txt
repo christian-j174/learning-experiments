@@ -1,0 +1,53 @@
+# Entorno compartido para los notebooks NOAA (Python 3.11, Windows).
+# TensorFlow 2.15 trae Keras 2, que es la API que usan los notebooks de
+# geomag-magnet (batch_input_shape, keras.preprocessing). TF >= 2.16 trae Keras 3 y los rompe.
+# TensorFlow 2.15 exige numpy < 2, por eso todo el entorno queda en numpy 1.26.
+
+# Jupyter
+jupyterlab
+ipykernel
+pip  # las celdas de "instalar si falta" de los notebooks llaman a pip
+
+# Base científica
+numpy==1.26.4
+pandas>=2.1,<2.3
+scipy
+matplotlib<3.10  # Carpenter_Workshop (toolbox) usa InsetPosition, que se quitó en 3.10
+seaborn
+tqdm
+requests
+packaging
+setuptools<80  # xarray-datatree todavía importa pkg_resources
+
+# Machine learning
+scikit-learn
+statsmodels
+tensorflow==2.15.1
+
+# Formatos y datos en la nube
+xarray<2025.7  # la última línea de xarray que todavía funciona con zarr 2
+netCDF4
+zarr<3  # echopype 0.8.4 necesita zarr 2
+s3fs
+boto3
+cfgrib
+eccodes
+# pygrib: no tiene wheel para Windows. El notebook de FRP lo importa pero no lo usa; comenta esa línea.
+
+# Mapas y geoespacial
+cartopy
+shapely
+pyproj
+pyresample
+geopandas
+folium
+mapclassify
+metpy
+
+# Específicos de cada proyecto
+echopype==0.8.4
+windrose
+wget
+herbie-data
+# Carpenter_Workshop aporta los módulos "toolbox" y "paint" que usa el notebook de FRP
+git+https://github.com/blaylockbk/Carpenter_Workshop.git
